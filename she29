@@ -5,19 +5,24 @@ echo "終了の時はENDを入力してください。"
 while :
 do
     read -p "文字を入力してください" num1 ope num2
-    if [ "$ope" = "+" ] ; then
+    if [ "$ope" = + ] ; then
         count=$(( $num1 + $num2 ))
-        echo "$num1+$num2=$count" 
-    elif [ "$ope" = "-" ] ; then
+        echo $num1+$num2=$count 
+    elif [ "$ope" = - ] ; then
         count=$(( $num1 - $num2 ))
-        echo "$num1-$num2=$count"
-    elif [ "$ope" = "*" ] ; then
+        echo $num1-$num2=$count
+    elif [ "$ope" = * ] ; then
         count=$(( $num1 * $num2 ))
-        echo " $num1*$num2=$count"
-    elif [ "$ope" = "/" ] ; then
+        echo $num1*$num2=$count
+    elif [ "$ope" = / ] ; then
         count=$(( $num1 / $num2 ))
-        echo " $num1/$num2=$count...$(( $num1 % $num2 )) "
-    else [ "$num1" = "END" ]
+        amari=$(( $num1 % $num2))
+        if [ $amari -eq 0] ; then
+            echo $num1/$num2=$count
+        elif
+            echo $num1/$num2=$count...$amari
+        fi
+    elif [ $num1 = END ]
         break
     fi
 done
