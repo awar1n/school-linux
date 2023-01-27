@@ -1,21 +1,23 @@
 #!/bin/bash
-for ((;;))
+echo "これから計算を始めます。"
+echo "計算式は\"数値1'演算子'数値2\"の形式で入力してください。"
+echo "終了の時はENDを入力してください。"
+while :
 do
-    read -p "now time" A
-    if [$A -ge 5 -a $A -le 20] ; then
-        echo "おはよう"
-    elif [$A -ge 11 -a $A -le 15 ] ; then 
-        echo "こんにちわ"
-    elif [ $A -ge 16 -a $A -le 20 ] ; then
-        echo "こんばんわ"
-    elif [ $A -ge 21 -a $A -le 24 ] ; then 
-        echo "おやすみ"
-    else
-        "0時から24時までで入力してください"
-    fi
-
-    read -p "終了しますか" B
-    if [ $B = yes ] ; then
+    read -p "文字を入力してください" num1 ope num2
+    if [ "$ope" = "+" ] ; then
+        count=$(( $num1 + $num2 ))
+        echo "$num1+$num2=$count" 
+    elif [ "$ope" = "-" ] ; then
+        count=$(( $num1 - $num2 ))
+        echo "$num1-$num2=$count"
+    elif [ "$ope" = "*" ] ; then
+        count=$(( $num1 * $num2 ))
+        echo " $num1*$num2=$count"
+    elif [ "$ope" = "/" ] ; then
+        count=$(( $num1 / $num2 ))
+        echo " $num1/$num2=$count...$(( $num1 % $num2 )) "
+    else [ "$num1" = "END" ]
         break
     fi
 done
