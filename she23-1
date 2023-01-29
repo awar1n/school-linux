@@ -2,30 +2,33 @@
 echo "start cal"
 echo "cal import num1 ope num2"
 echo "fin is END"
-while :
+while : 
 do
-    read -p "enter number " num1 ope num2
-    if [ "$num1" = "[0-9]*$" && "$num2" = "[0-9]*$" ] ; then 
-        if [ "$ope" = + ] ; then 
-            echo $num1+$num2=$(( $num1 + $num2 ))
-        elif [ "$ope" = - ] ; then
-            echo $num1-$num2=$(( $num1 - $num2 ))
-        elif [ "$ope" = \* ] ; then
-            echo $num1*$num2=$(( $num1 \* $num2 ))
-        elif [ "$ope" = / ] ; then
+read -p "enter number:" num1 ope num2
+if  expr "$num1" : "[0-9]*$" >&/dev/null || "$num2" : "[0-9]*$" >&/dev/null ; then
+    case "$ope" in
+        + ) 
+            count=$(( $num1 + $num2 ))
+            echo "$num1+$num2=$count" ;;
+        - ) 
+            count=$(( $num1 - $num2 ))
+            echo "$num1-$num2=$count" ;;
+        \* ) 
+            count=$(( $num1 * $num2 )) 
+            echo "$num1*$num2=$count" ;; 
+        / )
             count=$(( $num1 / $num2 ))
             amari=$(( $num1 % $num2 ))
-            if [ $amari -eq 0 ] ; then
-                echo $num1/$num2=$count
+        if [ $amari -eq 0 ] ; then
+                echo "$num1/$num2=$count"
             else
-                echo $num1/$num2=$count ... $amari
-            fi
-        fi
-    else
-        if [[ $num1 = "END" ]] ; then
-            break
-        else
-            echo "AAA"
-        fi
-    fi
+                echo "$num1/$num2=$count ... $amari"
+            fi ;;
+    esac
+else
+    case "$num1" in
+        "END") break ;;
+        *    ) echo "AAA" ;;
+    esac
+fi
 done
