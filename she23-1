@@ -2,33 +2,31 @@
 echo "これから計算をはじめます"
 echo "計算式は num1 演算子 num2 の形式で入力してください"
 echo "終了する際は END を入力してください"
-while : 
-do
-read -p "式を入力してください:" num1 ope num2
-if  expr "$num1" : "[0-9]*$" >&/dev/null || "$num2" : "[0-9]*$" >&/dev/null ; then
-    case "$ope" in
-        + ) 
-            count=$(( $num1 + $num2 ))
-            echo "$num1+$num2=$count" ;;
-        - ) 
-            count=$(( $num1 - $num2 ))
-            echo "$num1-$num2=$count" ;;
-        \* ) 
-            count=$(( $num1 * $num2 )) 
-            echo "$num1*$num2=$count" ;; 
-        / )
-            count=$(( $num1 / $num2 ))
-            amari=$(( $num1 % $num2 ))
-        if [ $amari -eq 0 ] ; then
-                echo "$num1/$num2=$count"
-            else
-                echo "$num1/$num2=$count ... $amari"
-            fi ;;
-    esac
-else
-    case "$num1" in
-        "END") break ;;
-        *    ) echo "計算できません" ;;
-    esac
-fi
+while :
+do 
+    read -p "" num1 ope num2
+        case "$num1" in 
+            [0-9]* )
+                case "$num2" in
+                    [0-9]*)
+                        case "$ope" in
+                            + ) 
+                                echo $num1+$num2=$(( $num1 + $num2 )) ;;
+                            - ) 
+                                echo $num1-$num2=$(( $num1 - $num2 )) ;;
+                            \* ) 
+                                echo $num1*$num2=$(( $num1 * $num2 )) ;; 
+                            / )
+                                amari=$(( $num1 % $num2 ))
+                                if [ $amari -eq 0 ] ; then
+                                echo $num1/$num2=$(( $num1 / $num2 ))
+                                else
+                                echo $num1/$num2=$(( $num1 / $num2 )) ... $amari
+                                fi ;;
+                        esac ;;
+                    * ) echo ""
+                esac ;;
+            "END" ) break ;;
+            * ) echo ""
+        esac
 done
