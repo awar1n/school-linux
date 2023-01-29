@@ -1,10 +1,10 @@
 #!/bin/bash
-echo "start cal"
-echo "cal import num1 ope num2"
-echo "fin is END"
+echo "これから計算をはじめます"
+echo "計算式は num1 演算子 num2 の形式で入力してください"
+echo "終了する際は END を入力してください"
 while : 
 do
-read -p "enter number:" num1 ope num2
+read -p "式を入力してください:" num1 ope num2
 if  expr "$num1" : "[0-9]*$" >&/dev/null || "$num2" : "[0-9]*$" >&/dev/null ; then
     case "$ope" in
         + ) 
@@ -28,7 +28,7 @@ if  expr "$num1" : "[0-9]*$" >&/dev/null || "$num2" : "[0-9]*$" >&/dev/null ; th
 else
     case "$num1" in
         "END") break ;;
-        *    ) echo "AAA" ;;
+        *    ) echo "計算できません" ;;
     esac
 fi
 done
