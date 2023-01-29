@@ -4,7 +4,7 @@ echo "計算式は num1 演算子 num2 の形式で入力してください"
 echo "終了する際は END を入力してください"
 while :
 do 
-    read -p "" num1 ope num2
+    read -p "式を入力してください" num1 ope num2
         case "$num1" in 
             [0-9]* )
                 case "$num2" in
@@ -24,9 +24,9 @@ do
                                 echo $num1/$num2=$(( $num1 / $num2 )) ... $amari
                                 fi ;;
                         esac ;;
-                    * ) echo ""
+                    * ) echo "数値を入力してください"
                 esac ;;
             "END" ) break ;;
-            * ) echo ""
+            * ) echo "数値を入力してください"
         esac
 done
