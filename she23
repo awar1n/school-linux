@@ -6,8 +6,10 @@ while :
 do 
     read -p "式を入力してください" num1 ope num2
         case "$num1" in 
+            *[:alpha:]*) echo "整数を入力してください" ;;
             [0-9]* )
                 case "$num2" in
+                    *[:alpha:]*) echo "整数を入力してください" ;;
                     [0-9]*)
                         case "$ope" in
                             + ) 
