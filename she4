@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Current Directory : `pwd` "
+read -p "Input Your Firstname :" Fname
+read -p "Input Your Lastname :" Lname
+echo "your name is \e[0;34m $Fname \e[0m \e[1;33m $Lname \e[0m"
+echo "Today is \e[1;31m `date` \e[0m"
+echo "My SCRIPT FILE List is : \n`ls -l`"
