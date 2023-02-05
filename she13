@@ -1,0 +1,11 @@
+#!/bin/bash
+#Example13 for 九九
+echo "---九九---"
+for i in $(seq 1 9)
+do
+    for j in $(seq 1 9)
+    do
+    printf "%3d\t" $(($i * $j ))
+    done
+    echo
+done
