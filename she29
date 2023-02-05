@@ -10,6 +10,8 @@ do
         echo "こんばんわ"
     elif [ $A -ge 21 -a $A -le 24 ] ; then 
         echo "おやすみ"
+    elif [ $A -ge 0 -a $A -le 4 ] ; then
+        echo "おやすみ"
     else
         "0時から24時までで入力してください"
     fi
