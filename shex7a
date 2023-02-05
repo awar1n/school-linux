@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "=================="
+read -p "数１を入力してください:" num1
+read -p "数２を入力してください:" num2
+
+echo "あなたが入力した数値は $num1 と $num2 ですね"
+echo "四則演算結果です"
+echo "$num1 + $num2=$(( $num1 + $num2 ))"
+echo "$num1 - $num2=$(( $num1 - $num2 ))"
+echo "$num1 * $num2=$(( $num1 * $num2 ))"
+echo "$num1 / $num2=$(( $num1 / $num2 ))...$(( $num1 % $num2 ))"
+echo "=================="
