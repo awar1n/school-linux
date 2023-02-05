@@ -1,11 +1,11 @@
-#!/bin/bah
+#!/bin/bash
 for i in `seq 4`
 do
-read -p "あなたの好きな動物は(dog cat mouse)?" RESPONSE
-case $RESOPNSE in 
-  [Dd][Oo][Gg]) echo "プルートが好きですね" ;;
-  [Cc][Aa][Tt]) echo "ティガーもねこかな" ;;
-  [Mm][Oo][Uu][Ss][Ee]) echo "ミッキーマウスがいい" ;;
-  * ) echo "dog cat mouse を入力すること"
-esac
+    read -p "あなたの好きな動物は(dog cat mouse)?" RESPONSE
+    case $RESPONSE in 
+        [Dd][Oo][Gg]) echo "プルートが好きですね" ;;
+        [Cc][Aa][Tt]) echo "ティガーもねこかな" ;;
+        [Mm][Oo][Uu][Ss][Ee]) echo "ミッキーマウスがいい" ;;
+        * ) echo "dog cat mouse を入力すること"
+    esac
 done
